@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 
 import {
+  ArrowLeft,
   ArrowRight,
   Award,
   BookOpen,
@@ -19,69 +21,137 @@ import { news } from "../../data/news";
 import { events } from "../../data/events";
 import { gallery } from "../../data/gallery";
 
+const heroSlides = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1800&q=90",
+    alt: "Élèves dans un environnement scolaire",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=90",
+    alt: "Élèves dans une salle de classe",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=90",
+    alt: "Vie scolaire et apprentissage",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1800&q=90",
+    alt: "Élèves participant à une activité scolaire",
+  },
+];
+
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const latestNews = news.slice(0, 3);
   const upcomingEvents = events.slice(0, 3);
   const galleryPreview = gallery.slice(0, 6);
 
+  // Changement automatique toutes les 6 secondes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((previous) =>
+        previous === heroSlides.length - 1 ? 0 : previous + 1,
+      );
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const previousSlide = () => {
+    setCurrentSlide((previous) =>
+      previous === 0 ? heroSlides.length - 1 : previous - 1,
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((previous) =>
+      previous === heroSlides.length - 1 ? 0 : previous + 1,
+    );
+  };
+
   return (
     <main className="overflow-hidden">
       {/* =====================================================
-          HERO
+          HERO — SLIDER PROFESSIONNEL
       ====================================================== */}
       <section className="relative min-h-[720px] overflow-hidden bg-blue-950">
-        <img
-          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1800&q=90"
-          alt="Élèves de l'établissement scolaire"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {/* Images */}
+        {heroSlides.map((slide, index) => (
+          <img
+            key={slide.image}
+            src={slide.image}
+            alt={slide.alt}
+            fetchPriority={index === 0 ? "high" : "low"}
+            loading={index === 0 ? "eager" : "lazy"}
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-[1500ms] ease-in-out ${
+              currentSlide === index
+                ? "scale-105 opacity-100"
+                : "scale-100 opacity-0"
+            }`}
+          />
+        ))}
 
-        {/* Overlay */}
+        {/* Overlay principal */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-950/85 to-blue-950/45" />
 
-        {/* Décoration */}
-        <div className="absolute -right-32 top-20 h-80 w-80 rounded-full bg-yellow-400/10 blur-3xl" />
+        {/* Overlay inférieur */}
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-blue-950/70 to-transparent" />
+
+        {/* Décorations */}
+        <div className="absolute -right-32 top-20 h-80 w-80 rounded-full bg-red-500/10 blur-3xl" />
         <div className="absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
 
         <Container>
           <div className="relative flex min-h-[720px] items-center py-24">
             <div className="max-w-3xl text-white">
+              {/* Badge */}
               <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur-md">
-                <GraduationCap size={18} className="text-yellow-400" />
-                De l'école primaire à la Terminale
+                <GraduationCap size={18} className="text-red-500" />
+
+                <span>De l'école primaire à la Terminale</span>
               </div>
 
+              {/* Titre */}
               <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-7xl">
                 Construire aujourd'hui
-                <span className="block text-yellow-400">
+                <span className="block text-red-500">
                   les réussites de demain.
                 </span>
               </h1>
 
+              {/* Description */}
               <p className="mt-7 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
                 {schoolInfo.description}
               </p>
 
+              {/* Boutons */}
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="/ecole"
                   className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-blue-950 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-xl"
                 >
                   Découvrir notre école
+
                   <ArrowRight
                     size={18}
-                    className="transition-transform group-hover:translate-x-1"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
 
                 <a
                   href="/inscription"
-                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-yellow-500 px-6 py-3.5 text-sm font-bold text-blue-950 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-red-500 hover:shadow-xl"
                 >
                   Demander une inscription
+
                   <ArrowRight
                     size={18}
-                    className="transition-transform group-hover:translate-x-1"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
               </div>
@@ -90,6 +160,7 @@ const Home = () => {
               <div className="mt-12 flex flex-wrap gap-6 border-t border-white/15 pt-6">
                 <div>
                   <p className="text-2xl font-bold text-white">3</p>
+
                   <p className="text-xs text-slate-400">
                     Cycles d'enseignement
                   </p>
@@ -99,6 +170,7 @@ const Home = () => {
 
                 <div>
                   <p className="text-2xl font-bold text-white">CP → T</p>
+
                   <p className="text-xs text-slate-400">
                     Parcours scolaire complet
                   </p>
@@ -108,6 +180,7 @@ const Home = () => {
 
                 <div>
                   <p className="text-2xl font-bold text-white">2026</p>
+
                   <p className="text-xs text-slate-400">
                     Année scolaire
                   </p>
@@ -116,11 +189,58 @@ const Home = () => {
             </div>
           </div>
         </Container>
+
+        {/* Bouton précédent */}
+        <button
+          type="button"
+          onClick={previousSlide}
+          aria-label="Image précédente"
+          className="absolute left-4 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/20 p-3 text-white backdrop-blur-md transition duration-300 hover:border-white/40 hover:bg-white/15 sm:flex"
+        >
+          <ArrowLeft size={20} />
+        </button>
+
+        {/* Bouton suivant */}
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Image suivante"
+          className="absolute right-4 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/20 p-3 text-white backdrop-blur-md transition duration-300 hover:border-white/40 hover:bg-white/15 sm:flex"
+        >
+          <ArrowRight size={20} />
+        </button>
+
+        {/* Indicateurs */}
+        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-2">
+          {heroSlides.map((slide, index) => (
+            <button
+              key={slide.image}
+              type="button"
+              onClick={() => setCurrentSlide(index)}
+              aria-label={`Afficher la photo ${index + 1}`}
+              aria-current={currentSlide === index ? "true" : undefined}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                currentSlide === index
+                  ? "w-9 bg-red-500"
+                  : "w-2.5 bg-white/50 hover:bg-white/80"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Numéro du slide */}
+        <div className="absolute bottom-7 right-6 hidden items-center gap-2 text-xs font-medium text-white/70 sm:flex">
+          <span className="text-sm font-bold text-white">
+            {String(currentSlide + 1).padStart(2, "0")}
+          </span>
+
+          <span>/</span>
+
+          <span>{String(heroSlides.length).padStart(2, "0")}</span>
+        </div>
       </section>
 
-      {/* =====================================================
-          CHIFFRES / CYCLES
-      ====================================================== */}
+      {/* CHIFFRES / CYCLES */}
       <section className="relative bg-white py-20">
         <Container>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -153,12 +273,12 @@ const Home = () => {
                   key={item.title}
                   className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
                 >
-                  <div className="absolute right-0 top-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-blue-50 transition group-hover:bg-yellow-50" />
+                  <div className="absolute right-0 top-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-blue-50 transition group-hover:bg-red-50" />
 
                   <div
                     className={`relative flex h-12 w-12 items-center justify-center rounded-xl ${
                       index === 3
-                        ? "bg-yellow-50 text-yellow-600"
+                        ? "bg-red-50 text-red-600"
                         : "bg-blue-50 text-blue-900"
                     }`}
                   >
@@ -179,14 +299,12 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          NOTRE ÉTABLISSEMENT
-      ====================================================== */}
+      {/* NOTRE ÉTABLISSEMENT */}
       <section className="bg-slate-50 py-24">
         <Container>
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <div className="relative">
-              <div className="absolute -bottom-5 -right-5 h-40 w-40 rounded-3xl bg-yellow-400/20" />
+              <div className="absolute -bottom-5 -right-5 h-40 w-40 rounded-3xl bg-red-500/20" />
 
               <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
                 <img
@@ -197,7 +315,7 @@ const Home = () => {
                 />
 
                 <div className="absolute bottom-5 left-5 rounded-2xl border border-white/20 bg-blue-950/85 px-5 py-4 text-white backdrop-blur-md">
-                  <p className="text-xs uppercase tracking-wider text-yellow-400">
+                  <p className="text-xs uppercase tracking-wider text-red-500">
                     Notre engagement
                   </p>
 
@@ -228,7 +346,7 @@ const Home = () => {
                   >
                     <CheckCircle2
                       size={21}
-                      className="mt-0.5 shrink-0 text-yellow-500"
+                      className="mt-0.5 shrink-0 text-red-600"
                     />
 
                     <p className="text-sm leading-6 text-slate-600">
@@ -243,6 +361,7 @@ const Home = () => {
                 className="group mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-lg"
               >
                 En savoir plus
+
                 <ArrowRight
                   size={18}
                   className="transition-transform group-hover:translate-x-1"
@@ -253,9 +372,7 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          RÉSULTATS AUX EXAMENS
-      ====================================================== */}
+      {/* RÉSULTATS AUX EXAMENS */}
       <section className="relative overflow-hidden bg-slate-50 pb-24">
         <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-blue-100/40 blur-3xl" />
 
@@ -282,7 +399,7 @@ const Home = () => {
                     key={result.exam}
                     className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
                   >
-                    <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-yellow-400/10 transition duration-500 group-hover:scale-150" />
+                    <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-red-500/10 transition duration-500 group-hover:scale-150" />
 
                     <div className="relative">
                       <div className="flex items-center justify-between">
@@ -290,7 +407,7 @@ const Home = () => {
                           <Icon size={27} />
                         </div>
 
-                        <span className="rounded-full bg-yellow-50 px-3 py-1 text-xs font-bold text-yellow-700">
+                        <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-bold text-red-700">
                           {result.year}
                         </span>
                       </div>
@@ -321,15 +438,12 @@ const Home = () => {
                             </p>
                           </div>
 
-                          <Award
-                            size={30}
-                            className="text-yellow-500"
-                          />
+                          <Award size={30} className="text-red-600" />
                         </div>
 
                         <div className="mt-4 h-2 overflow-hidden rounded-full bg-blue-100">
                           <div
-                            className="h-full rounded-full bg-yellow-500 transition-all duration-1000"
+                            className="h-full rounded-full bg-red-600 transition-all duration-1000"
                             style={{
                               width: `${Math.min(
                                 Math.max(result.successRate, 0),
@@ -370,7 +484,7 @@ const Home = () => {
             <div className="mx-auto mt-8 flex max-w-3xl items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-600 shadow-sm">
               <Award
                 size={20}
-                className="mt-0.5 shrink-0 text-yellow-500"
+                className="mt-0.5 shrink-0 text-red-600"
               />
 
               <p className="leading-6">
@@ -383,9 +497,7 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          NIVEAUX
-      ====================================================== */}
+      {/* NIVEAUX */}
       <section className="bg-white py-24">
         <Container>
           <SectionTitle
@@ -413,7 +525,7 @@ const Home = () => {
                 title: "Lycée",
                 description: "Seconde, Première et Terminale.",
                 icon: Trophy,
-                color: "yellow",
+                color: "red",
               },
             ].map((level) => {
               const Icon = level.icon;
@@ -427,8 +539,8 @@ const Home = () => {
 
                   <div
                     className={`relative flex h-14 w-14 items-center justify-center rounded-2xl ${
-                      level.color === "yellow"
-                        ? "bg-yellow-500 text-blue-950"
+                      level.color === "red"
+                        ? "bg-red-600 text-white"
                         : "bg-blue-900 text-white"
                     }`}
                   >
@@ -448,6 +560,7 @@ const Home = () => {
                     className="group/link relative mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-900"
                   >
                     Découvrir
+
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover/link:translate-x-1"
@@ -460,9 +573,7 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          ACTUALITÉS
-      ====================================================== */}
+      {/* ACTUALITÉS */}
       <section className="bg-slate-50 py-24">
         <Container>
           <SectionTitle
@@ -504,6 +615,7 @@ const Home = () => {
                     className="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-900"
                   >
                     Lire la suite
+
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover/link:translate-x-1"
@@ -520,6 +632,7 @@ const Home = () => {
               className="group inline-flex items-center gap-2 rounded-xl bg-blue-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-lg"
             >
               Toutes les actualités
+
               <ArrowRight
                 size={17}
                 className="transition-transform group-hover:translate-x-1"
@@ -529,9 +642,7 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          ÉVÉNEMENTS
-      ====================================================== */}
+      {/* ÉVÉNEMENTS */}
       <section className="bg-white py-24">
         <Container>
           <SectionTitle
@@ -551,7 +662,7 @@ const Home = () => {
                     <CalendarDays size={23} />
                   </div>
 
-                  <span className="text-xs font-bold uppercase tracking-wider text-yellow-600">
+                  <span className="text-xs font-bold uppercase tracking-wider text-red-600">
                     {event.date}
                   </span>
                 </div>
@@ -565,7 +676,7 @@ const Home = () => {
                 </p>
 
                 <div className="mt-5 flex items-center gap-2 text-sm text-slate-500">
-                  <MapPin size={17} className="text-yellow-500" />
+                  <MapPin size={17} className="text-red-600" />
                   {event.location}
                 </div>
               </article>
@@ -577,14 +688,13 @@ const Home = () => {
             className="mt-9 inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:border-blue-300 hover:bg-slate-50"
           >
             Voir tous les événements
+
             <ArrowRight size={17} />
           </a>
         </Container>
       </section>
 
-      {/* =====================================================
-          GALERIE
-      ====================================================== */}
+      {/* GALERIE */}
       <section className="bg-slate-50 py-24">
         <Container>
           <SectionTitle
@@ -611,12 +721,11 @@ const Home = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/10 to-transparent opacity-70 transition group-hover:opacity-100" />
 
                 <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-5 text-white transition duration-300 group-hover:translate-y-0">
-                  <p className="font-semibold">
-                    {item.title}
-                  </p>
+                  <p className="font-semibold">{item.title}</p>
 
                   <span className="mt-1 inline-flex items-center gap-1 text-xs text-slate-300">
                     Voir la galerie
+
                     <ArrowRight size={13} />
                   </span>
                 </div>
@@ -630,6 +739,7 @@ const Home = () => {
               className="group inline-flex items-center gap-2 rounded-xl bg-blue-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-lg"
             >
               Voir toute la galerie
+
               <ArrowRight
                 size={17}
                 className="transition-transform group-hover:translate-x-1"
@@ -639,17 +749,15 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          DISCIPLINE & VIE SCOLAIRE
-      ====================================================== */}
+      {/* DISCIPLINE & VIE SCOLAIRE */}
       <section className="bg-white py-24">
         <Container>
           <div className="relative overflow-hidden rounded-[2rem] bg-blue-950 shadow-xl">
-            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-yellow-400/10 blur-2xl" />
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-red-500/10 blur-2xl" />
 
             <div className="grid lg:grid-cols-5">
               <div className="relative px-7 py-12 sm:px-10 lg:col-span-3 lg:px-12 lg:py-14">
-                <div className="inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-2 text-sm font-semibold text-yellow-400">
+                <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-500">
                   <CheckCircle2 size={17} />
                   Discipline & Vie scolaire
                 </div>
@@ -680,7 +788,7 @@ const Home = () => {
                     >
                       <CheckCircle2
                         size={19}
-                        className="mt-1 shrink-0 text-yellow-400"
+                        className="mt-1 shrink-0 text-red-500"
                       />
 
                       <p className="text-sm leading-6 text-slate-200">
@@ -693,7 +801,7 @@ const Home = () => {
 
               <div className="relative bg-blue-900 px-7 py-12 sm:px-10 lg:col-span-2 lg:px-10 lg:py-14">
                 <div className="relative">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-500 text-blue-950 shadow-lg">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-600 text-white shadow-lg">
                     <BookOpen size={27} />
                   </div>
 
@@ -727,9 +835,7 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          TÉMOIGNAGES
-      ====================================================== */}
+      {/* TÉMOIGNAGES */}
       <section className="bg-slate-50 py-24">
         <Container>
           <SectionTitle
@@ -758,8 +864,8 @@ const Home = () => {
                 key={testimonial.text}
                 className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow-50">
-                  <Quote size={24} className="text-yellow-500" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50">
+                  <Quote size={24} className="text-red-600" />
                 </div>
 
                 <p className="mt-5 text-sm leading-7 text-slate-600">
@@ -779,16 +885,14 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* =====================================================
-          CTA INSCRIPTION
-      ====================================================== */}
+      {/* CTA INSCRIPTION */}
       <section className="relative overflow-hidden bg-blue-950 py-24">
-        <div className="absolute -right-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-yellow-400/10 blur-3xl" />
+        <div className="absolute -right-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-red-500/10 blur-3xl" />
 
         <Container>
           <div className="relative flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
             <div className="max-w-2xl text-white">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-yellow-400">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-red-500">
                 Inscription
               </p>
 
@@ -805,9 +909,10 @@ const Home = () => {
 
             <a
               href="/inscription"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 text-sm font-bold text-blue-950 shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-xl"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-xl bg-red-600 px-7 py-4 text-sm font-bold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-red-500 hover:shadow-xl"
             >
               Demander une inscription
+
               <ArrowRight
                 size={18}
                 className="transition-transform group-hover:translate-x-1"
@@ -821,4 +926,3 @@ const Home = () => {
 };
 
 export default Home;
-

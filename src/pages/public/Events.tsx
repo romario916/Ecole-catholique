@@ -18,25 +18,52 @@ const Events = () => {
   return (
     <div>
       {/* Header */}
-      <section className="bg-slate-50 py-20">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-yellow-600">
-              Agenda scolaire
-            </p>
+      <section className="relative overflow-hidden bg-red-800 py-24 sm:py-28">
+        {/* Image arrière-plan */}
+        <img
+          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
+          alt="Élèves dans un établissement scolaire"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-              Les prochains événements
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r via-red-800/40 " />
+        <div className="absolute inset-0 bg-gradient-to-t  via-transparent to-transparent" />
+
+        {/* Décorations */}
+        <div className="absolute -right-32 top-0 h-96 w-96 rounded-full bg-red-500/10 blur-3xl" />
+        <div className="absolute -bottom-32 left-1/4 h-80 w-80 rounded-full bg-blue-500/15 blur-3xl" />
+
+        <Container>
+          <div className="relative max-w-3xl text-white">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-yellow-400 shadow-lg shadow-black/20 backdrop-blur-xl">
+              Agenda scolaire
+
+
+
+            </div>
+
+            <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-7xl">
+             Les prochains événements
+              <span className="block text-blue-600">
+            Notre Dame du Rosaire
+
+
+              </span>
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Retrouvez les principaux rendez-vous, activités et moments
-              importants de la vie de notre établissement.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/90 drop-shadow-md sm:text-lg">
+            Retrouvez les principaux rendez-vous, activités et moments importants de la vie de notre établissement.
+
+
+
+
             </p>
+
+            <div className="mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-red-500 to-red-700 shadow-sm shadow-red-500/30" />
           </div>
         </Container>
       </section>
-
       {/* Events */}
       <section className="bg-white py-20">
         <Container>

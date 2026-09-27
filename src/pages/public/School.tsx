@@ -1,3 +1,4 @@
+
 import {
   Award,
   BookOpen,
@@ -16,22 +17,44 @@ const School = () => {
   return (
     <div>
       {/* En-tête */}
-      <section className="bg-slate-50 py-20">
-        <Container>
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wider text-yellow-600">
-              Notre école
-            </p>
 
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-              Un cadre d'apprentissage pensé pour chaque élève
+      {/* En-tête / Hero */}
+      <section className="relative overflow-hidden bg-red-800 py-24 sm:py-28">
+        {/* Image arrière-plan */}
+        <img
+          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
+          alt="Élèves dans un établissement scolaire"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r via-red-800/40 " />
+        <div className="absolute inset-0 bg-gradient-to-t  via-transparent to-transparent" />
+
+        {/* Décorations */}
+        <div className="absolute -right-32 top-0 h-96 w-96 rounded-full bg-red-500/10 blur-3xl" />
+        <div className="absolute -bottom-32 left-1/4 h-80 w-80 rounded-full bg-blue-500/15 blur-3xl" />
+
+        <Container>
+          <div className="relative max-w-3xl text-white">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-yellow-400 shadow-lg shadow-black/20 backdrop-blur-xl">
+              Notre école
+            </div>
+
+            <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-7xl">
+              Un cadre d'apprentissage
+              <span className="block text-blue-600">
+                pensé pour chaque élève
+              </span>
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-slate-600">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/90 drop-shadow-md sm:text-lg">
               Notre établissement accompagne les élèves de l'école primaire
               jusqu'à la classe de Terminale dans un environnement propice
               aux apprentissages, à l'autonomie et à l'épanouissement.
             </p>
+
+            <div className="mt-8 h-1 w-16 rounded-full bg-gradient-to-r from-red-500 to-red-700 shadow-sm shadow-red-500/30" />
           </div>
         </Container>
       </section>
@@ -104,7 +127,7 @@ const School = () => {
             </div>
 
             <div className="rounded-3xl bg-blue-900 p-8 text-white sm:p-10">
-              <BookOpen size={34} className="text-yellow-400" />
+              <BookOpen size={34} className="text-red-400" />
 
               <h2 className="mt-6 text-2xl font-bold">
                 Une école tournée vers l'avenir
@@ -148,8 +171,8 @@ const School = () => {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-50">
-                <Award className="text-yellow-600" size={24} />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50">
+                <Award className="text-red-600" size={24} />
               </div>
 
               <h3 className="mt-6 text-xl font-bold text-slate-900">
@@ -190,7 +213,7 @@ const School = () => {
             </div>
 
             <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <Award className="text-blue-900" size={28} />
+              <Award className="text-red-600" size={28} />
 
               <h3 className="mt-5 font-bold text-slate-900">
                 Excellence
@@ -214,7 +237,7 @@ const School = () => {
             </div>
 
             <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <Users className="text-blue-900" size={28} />
+              <Users className="text-red-600" size={28} />
 
               <h3 className="mt-5 font-bold text-slate-900">
                 Collaboration
@@ -242,7 +265,7 @@ const School = () => {
             </div>
 
             <div className="rounded-3xl bg-slate-950 p-8 text-white sm:p-10">
-              <Building2 size={32} className="text-yellow-400" />
+              <Building2 size={32} className="text-red-400" />
 
               <h2 className="mt-6 text-2xl font-bold">
                 Un environnement propice aux apprentissages
@@ -287,7 +310,7 @@ const School = () => {
               <Button
                 to="/contact"
                 variant="outline"
-                className="border-white bg-transparent text-white hover:bg-white hover:text-blue-900"
+                className="border-white bg-transparent text-yellow hover:bg-white hover:text-blue-900"
               >
                 Nous contacter
               </Button>
@@ -300,3 +323,4 @@ const School = () => {
 };
 
 export default School;
+

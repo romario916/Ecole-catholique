@@ -35,11 +35,11 @@ const SchoolFees = () => {
       <section className="bg-blue-950 py-20 text-white">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-500 text-blue-950">
-              <WalletCards size={30} />
+            <div className="mx-auto transform -translate-y-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-red-600 text-blue-950">
+              <WalletCards size={30} className="transform -translate-y-1" />
             </div>
 
-            <p className="mt-6 text-sm font-semibold uppercase tracking-wider text-yellow-400">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-yellow-400 shadow-lg shadow-black/20 backdrop-blur-xl">
               Informations financières
             </p>
 
@@ -327,7 +327,7 @@ const SchoolFees = () => {
               href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 text-sm font-bold text-blue-950 transition hover:bg-yellow-400"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-green-500 px-7 py-4 text-sm font-bold text-blue-950 transition hover:bg-yellow-400"
             >
               <MessageCircle size={19} />
               Nous contacter sur WhatsApp
