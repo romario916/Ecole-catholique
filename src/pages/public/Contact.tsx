@@ -78,7 +78,7 @@ ${formData.message}
      <section className="relative overflow-hidden bg-red-800 py-24 sm:py-28">
         {/* Image arrière-plan */}
         <img
-          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
+          src="contacte.jfif"
           alt="Élèves dans un établissement scolaire"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -93,7 +93,7 @@ ${formData.message}
 
         <Container>
           <div className="relative max-w-3xl text-white">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-red-400 shadow-lg shadow-black/20 backdrop-blur-xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-yellow-400 shadow-lg shadow-black/20 backdrop-blur-xl">
               Contact
 
 

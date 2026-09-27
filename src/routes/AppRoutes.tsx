@@ -13,10 +13,12 @@ import Gallery from "../pages/public/Gallery";
 import Registration from "../pages/public/Registration";
 import Contact from "../pages/public/Contact";
 import SchoolFees from "../pages/public/SchoolFees";
+import ScrollToTop from "../components/ScrollToTop";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
+     <ScrollToTop />
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />

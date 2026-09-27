@@ -12,8 +12,8 @@ export const schoolInfo = {
     longitude: 47.5145131,
   },
 
-  phone: "+261 37 89 110 98",
-  email: "contact@ecoleexcellence.mg",
+  phone: "+261 37 33 621 ",
+  email: "romarheny08@gmail.com",
 
   openingHours: [
     {

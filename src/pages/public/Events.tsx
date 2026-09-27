@@ -21,7 +21,7 @@ const Events = () => {
       <section className="relative overflow-hidden bg-red-800 py-24 sm:py-28">
         {/* Image arrière-plan */}
         <img
-          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
+          src="evenement.jpg"
           alt="Élèves dans un établissement scolaire"
           className="absolute inset-0 h-full w-full object-cover"
         />

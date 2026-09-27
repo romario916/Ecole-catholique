@@ -1,7 +1,8 @@
 
-import { Menu, X, GraduationCap, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import logo from "../../public/logondra.jpg";
 
 const navigation = [
   { name: "Accueil", path: "/" },
@@ -31,21 +32,16 @@ const Navbar = () => {
           onClick={closeMenu}
           className="group flex items-center gap-3"
         >
-          <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-blue-950 text-white shadow-md transition duration-300 group-hover:shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-950" />
-
-            <GraduationCap
-              size={23}
-              strokeWidth={2.2}
-              className="relative z-10"
-            />
-
-            <span className="absolute -right-1 -top-1 h-4 w-4 rounded-full bg-yellow-400" />
-          </div>
-
+          <div className="relative h-11 w-11 overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-slate-200 transition duration-300 group-hover:shadow-lg">
+  <img
+    src={logo}
+    alt="Notre Dame du Rosaire"
+    className="h-full w-full object-cover"
+  />
+</div>
           <div className="hidden sm:block">
             <p className="text-[17px] font-extrabold leading-tight tracking-tight text-blue-950">
-              École Excellence
+              Notre Dame du Rosaire
             </p>
 
             <p className="mt-0.5 text-[11px] font-medium tracking-wide text-slate-500">

@@ -6,7 +6,7 @@ export const gallery: GalleryItem[] = [
     title: "Activité en classe",
     category: "Classes",
     image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85",
+      "ecole.jpg",
   },
   {
     id: "vie-scolaire-1",
@@ -20,7 +20,7 @@ export const gallery: GalleryItem[] = [
     title: "Activité sportive",
     category: "Sport",
     image:
-      "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1200&q=85",
+      "galerysport.jpg",
   },
   {
     id: "culture-1",
@@ -34,21 +34,21 @@ export const gallery: GalleryItem[] = [
     title: "Événement scolaire",
     category: "Événements",
     image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85",
+      "etablicement.jpg",
   },
   {
     id: "classe-2",
     title: "Apprentissage",
     category: "Classes",
     image:
-      "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=85",
+      "ecole2.jpg",
   },
   {
     id: "sport-2",
     title: "Sport scolaire",
     category: "Sport",
     image:
-      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85",
+      "actual3.jpg",
   },
   {
     id: "culture-2",

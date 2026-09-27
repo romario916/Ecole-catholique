@@ -183,7 +183,7 @@ const Footer = () => {
                     href="tel:+261000000000"
                     className="mt-1 block text-slate-300 transition hover:text-white"
                   >
-                    +261 00 00 000 00
+                    +261 37 33 621 72
                   </a>
                 </div>
               </li>

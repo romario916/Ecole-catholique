@@ -10,7 +10,7 @@ export const news: News[] = [
     content:
       "La rentrée scolaire constitue une nouvelle étape pour les élèves, les familles et l'équipe pédagogique. Cette actualité peut être utilisée pour présenter les informations pratiques, les horaires et les différentes étapes de préparation.",
     image:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=85",
+      "actual1.jpg",
     category: "Vie scolaire",
   },
   {
@@ -22,7 +22,7 @@ export const news: News[] = [
     content:
       "Cette journée permet à l'équipe pédagogique de préparer les différentes activités de l'année et d'échanger autour des objectifs éducatifs de l'établissement.",
     image:
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=85",
+      "actual2.jpg",
     category: "Pédagogie",
   },
   {
@@ -34,7 +34,7 @@ export const news: News[] = [
     content:
       "Les activités sportives permettent aux élèves de développer leur esprit d'équipe, leur discipline et leur engagement tout en favorisant une vie scolaire équilibrée.",
     image:
-      "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1200&q=85",
+      "actual3.jpg",
     category: "Activités",
   },
   {
@@ -46,7 +46,7 @@ export const news: News[] = [
     content:
       "Les activités culturelles permettent aux élèves de développer leur créativité, de découvrir différentes formes d'expression et de participer à des projets collectifs.",
     image:
-      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85",
+      "actual4.jpg",
     category: "Culture",
   },
 ];

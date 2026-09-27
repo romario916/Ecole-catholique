@@ -24,22 +24,22 @@ import { gallery } from "../../data/gallery";
 const heroSlides = [
   {
     image:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1800&q=90",
+      "acail1.jpg",
     alt: "Élèves dans un environnement scolaire",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=90",
+      "aceul2.jpg",
     alt: "Élèves dans une salle de classe",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=90",
+      "acail3.jpg",
     alt: "Vie scolaire et apprentissage",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1800&q=90",
+      "acail4.jpg",
     alt: "Élèves participant à une activité scolaire",
   },
 ];
@@ -97,7 +97,7 @@ const Home = () => {
         ))}
 
         {/* Overlay principal */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-950/85 to-blue-950/45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950  to-blue-950/45" />
 
         {/* Overlay inférieur */}
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-blue-950/70 to-transparent" />
@@ -308,7 +308,7 @@ const Home = () => {
 
               <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=90"
+                  src="etablicement.jpg"
                   alt="Vie scolaire de l'établissement"
                   loading="lazy"
                   className="h-[460px] w-full object-cover transition duration-700 hover:scale-105"

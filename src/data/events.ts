@@ -23,7 +23,7 @@ export const events: Event[] = [
     location: "Terrain de l'établissement",
     category: "Sport",
     image:
-      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85",
+      "evensport.jpg",
   },
   {
     id: "journee-culturelle",
@@ -47,7 +47,7 @@ export const events: Event[] = [
     location: "Lieu à préciser",
     category: "Sortie",
     image:
-      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=85",
+      "evensortie.jpg",
   },
   {
     id: "ceremonie-fin-annee",
@@ -59,6 +59,6 @@ export const events: Event[] = [
     location: "Établissement scolaire",
     category: "Cérémonie",
     image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85",
+      "evensortie2.jpg",
   },
 ];
