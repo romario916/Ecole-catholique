@@ -8,6 +8,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../../public/logondra.jpg";
 
 const Footer = () => {
   return (
@@ -24,21 +25,17 @@ const Footer = () => {
               to="/"
               className="group inline-flex items-center gap-3"
             >
-              <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-blue-900 text-white shadow-lg transition group-hover:shadow-xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-700 to-blue-950" />
-
-                <GraduationCap
-                  size={25}
-                  strokeWidth={2.1}
-                  className="relative z-10"
-                />
-
-                <span className="absolute right-0 top-0 h-4 w-4 rounded-full bg-yellow-400" />
-              </div>
+              <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-white/20 bg-white shadow-lg transition duration-300 group-hover:scale-105 group-hover:shadow-xl">
+  <img
+    src={logo}
+    alt="Notre Dame du Rosaire"
+    className="h-full w-full object-cover object-center"
+  />
+</div>
 
               <div>
                 <p className="text-lg font-extrabold tracking-tight text-white">
-                  École Excellence
+                  Notre Dame du Rosaire Antohomadinika
                 </p>
 
                 <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-500">
@@ -180,7 +177,7 @@ const Footer = () => {
                   </p>
 
                   <a
-                    href="tel:+261000000000"
+                    href="tel:0373362172"
                     className="mt-1 block text-slate-300 transition hover:text-white"
                   >
                     037 33 621 72
@@ -199,7 +196,7 @@ const Footer = () => {
                   </p>
 
                   <a
-                    href="mailto:contact@ecoleexcellence.mg"
+                    href="mailto:romarhenry08@gmail.com"
                     className="mt-1 block truncate text-slate-300 transition hover:text-white"
                   >
                     romarhenry08@gmail.com
