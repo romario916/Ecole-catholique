@@ -183,7 +183,7 @@ const Footer = () => {
                     href="tel:+261000000000"
                     className="mt-1 block text-slate-300 transition hover:text-white"
                   >
-                    +261 37 33 621 72
+                    037 33 621 72
                   </a>
                 </div>
               </li>
@@ -202,7 +202,7 @@ const Footer = () => {
                     href="mailto:contact@ecoleexcellence.mg"
                     className="mt-1 block truncate text-slate-300 transition hover:text-white"
                   >
-                    contact@ecoleexcellence.mg
+                    romarhenry08@gmail.com
                   </a>
                 </div>
               </li>
