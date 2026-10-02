@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { videoTestimonials } from "../../data/videoTestimonials";
 
 import {
   ArrowLeft,
@@ -240,6 +241,9 @@ const Home = () => {
         </div>
       </section>
 
+
+
+
       {/* CHIFFRES / CYCLES */}
       <section className="relative bg-white py-20">
         <Container>
@@ -298,6 +302,25 @@ const Home = () => {
           </div>
         </Container>
       </section>
+
+
+
+{/* Message important */}
+<div className="mx-auto mt-10 max-w-2xl text-center">
+  <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 bg-gradient-to-br from-black/90 via-zinc-950/90 to-purple-950/70 px-6 py-5 shadow-2xl shadow-purple-900/40 ring-1 ring-red-500/20 backdrop-blur-xl before:absolute before:inset-x-0 before:top-0 before:h-1.5 before:bg-gradient-to-r before:from-red-500 before:via-fuchsia-600 before:to-purple-600 after:pointer-events-none after:absolute after:left-1/2 after:-top-14 after:h-36 after:w-36 after:-translate-x-1/2 after:rounded-full after:bg-purple-600/30 after:blur-3xl">
+    <p className="bg-gradient-to-r from-red-400 via-fuchsia-400 to-purple-400 bg-clip-text text-[11px] font-semibold uppercase tracking-[0.25em] text-transparent">
+      Message important
+    </p>
+
+    <p className="relative mt-2 text-sm font-medium leading-7 text-zinc-200 sm:text-base">
+      Chers parents et élèves, nous vous invitons à rester attentifs
+      aux informations communiquées par l'établissement concernant
+      la scolarité, les inscriptions, les événements et la vie scolaire.
+    </p>
+  </div>
+</div>
+
+
 
       {/* NOTRE ÉTABLISSEMENT */}
       <section className="bg-slate-50 py-24">
@@ -496,6 +519,94 @@ const Home = () => {
           </div>
         </Container>
       </section>
+
+
+      
+{/* =====================================================
+    TÉMOIGNAGES VIDÉO
+====================================================== */}
+<section className="bg-white py-24">
+  <Container>
+    <SectionTitle
+      eyebrow="Videos "
+      title="La video à nos élèves"
+      description="Découvrez quelques  vidéo de nos élèves sur leur expérience au sein de notre établissement."
+      centered
+    />
+
+    <div className="mt-12 grid gap-6 md:grid-cols-3">
+      {videoTestimonials.map((video) => (
+        <a
+          key={video.id}
+          href={video.facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          {/* Image */}
+          <div className="relative overflow-hidden">
+            <img
+              src={video.image}
+              alt={video.name}
+              loading="lazy"
+              className="h-64 w-full object-cover transition duration-700 group-hover:scale-105"
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/20 transition duration-300 group-hover:bg-black/40 " />
+
+            {/* Bouton Play */}
+            <div className="absolute inset-0 flex items-center justify-center ">
+              <div className=" hover:bg-blue-500 flex h-16 w-16 items-center justify-center rounded-full bg-red-600 text-white shadow-xl transition duration-300 group-hover:scale-110 group-hover:bg-red-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="ml-1 h-7 w-7"
+                >
+                  <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Facebook */}
+            <div className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-slate-900 shadow-md">
+              Facebook
+            </div>
+          </div>
+
+          {/* Contenu */}
+          <div className="p-6">
+            <h3 className="text-xl font-bold text-slate-950">
+              {video.name}
+            </h3>
+
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              {video.description}
+            </p>
+
+            <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-red-600 transition group-hover:text-red-700">
+              Voir la vidéo
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div className="mt-10 text-center">
+      <p className="text-sm text-slate-500">
+        Cliquez sur une vidéo pour découvrir le témoignage complet sur notre
+        page Facebook.
+      </p>
+    </div>
+  </Container>
+</section>
+
+
 
       {/* NIVEAUX */}
       <section className="bg-white py-24">
