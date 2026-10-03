@@ -22,7 +22,7 @@ const School = () => {
       <section className="relative overflow-hidden bg-red-800 py-24 sm:py-28">
         {/* Image arrière-plan */}
         <img
-          src="ecole.jpg"
+          src="ecole.webp"
           alt="Élèves dans un établissement scolaire"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -65,7 +65,7 @@ const School = () => {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="overflow-hidden rounded-3xl">
               <img
-                src="ecole1.jpg"
+                src="ecole1.webp"
                 alt="Élèves dans une salle de classe"
                 loading="lazy"
                 className="h-[420px] w-full object-cover"
@@ -257,7 +257,7 @@ const School = () => {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="overflow-hidden rounded-3xl">
               <img
-                src="ecole2.jpg"
+                src="ecole2.webp"
                 alt="Environnement scolaire"
                 loading="lazy"
                 className="h-full min-h-[320px] w-full object-cover"

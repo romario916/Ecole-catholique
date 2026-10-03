@@ -23,7 +23,7 @@ const Levels = () => {
       <section className="relative overflow-hidden bg-red-800 py-24 sm:py-28">
         {/* Image arrière-plan */}
         <img
-          src="nouveau.jpg"
+          src="nouveau.webp"
           alt="Élèves dans un établissement scolaire"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -176,7 +176,7 @@ const Levels = () => {
 
             <div className="overflow-hidden rounded-3xl">
               <img
-                src="nouveau1.jpg"
+                src="nouveau1.webp"
                 alt="Élèves dans un environnement scolaire"
                 loading="lazy"
                 className="h-[430px] w-full object-cover"

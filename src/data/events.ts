@@ -23,7 +23,7 @@ export const events: Event[] = [
     location: "Terrain de l'établissement",
     category: "Sport",
     image:
-      "evensport.jpg",
+      "evensport.webp",
   },
   {
     id: "journee-culturelle",
@@ -47,7 +47,7 @@ export const events: Event[] = [
     location: "Lieu à préciser",
     category: "Sortie",
     image:
-      "evensortie.jpg",
+      "evensortie.webp",
   },
   {
     id: "ceremonie-fin-annee",
@@ -59,6 +59,6 @@ export const events: Event[] = [
     location: "Établissement scolaire",
     category: "Cérémonie",
     image:
-      "evensortie2.jpg",
+      "evensortie2.webp",
   },
 ];

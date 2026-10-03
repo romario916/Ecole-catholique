@@ -33,7 +33,7 @@ const Programs = () => {
       <section className="relative overflow-hidden bg-red-800 py-24 sm:py-28">
         {/* Image arrière-plan */}
         <img
-          src="program.jpg"
+          src="program.webp"
           alt="Élèves dans un établissement scolaire"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -183,7 +183,7 @@ const Programs = () => {
 
             <div className="overflow-hidden rounded-3xl">
               <img
-                src="programme1.jpg"
+                src="programme1.webp"
                 alt="Apprentissage et sciences à l'école"
                 loading="lazy"
                 className="h-[430px] w-full object-cover"

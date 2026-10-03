@@ -8,7 +8,7 @@ export const staff: StaffMember[] = [
     role: "Direction",
     subject: "Directrice du l'établissement",
     image:
-      "evenculte.jpg",
+      "evenculte.webp",
   },
 
   {
@@ -18,7 +18,7 @@ export const staff: StaffMember[] = [
     role: "Enseignant",
     subject: "Enseignante de Français",
     image:
-      "prof1.jpg",
+      "prof1.webp",
   },
 
   {
@@ -28,7 +28,7 @@ export const staff: StaffMember[] = [
     role: "Enseignant",
     subject: "Enseignant de Mathématiques",
     image:
-      "prof2.jpg",
+      "prof2.webp",
   },
 
   {
@@ -38,7 +38,7 @@ export const staff: StaffMember[] = [
     role: "Enseignant",
     subject: "Enseignante d'Anglais",
     image:
-      "prof3.jpg",
+      "prof3.webp",
   },
 
   {
@@ -48,7 +48,7 @@ export const staff: StaffMember[] = [
     role: "Enseignant",
     subject: "Enseignant de Sciences",
     image:
-      "prof4.jpg",
+      "prof4.webp",
   },
 
   

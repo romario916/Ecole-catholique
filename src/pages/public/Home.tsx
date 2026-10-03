@@ -25,22 +25,22 @@ import { gallery } from "../../data/gallery";
 const heroSlides = [
   {
     image:
-      "acail1.jpg",
+      "acail1.webp",
     alt: "Élèves dans un environnement scolaire",
   },
   {
     image:
-      "aceul2.jpg",
+      "aceul2.webp",
     alt: "Élèves dans une salle de classe",
   },
   {
     image:
-      "acail3.jpg",
+      "acail3.webp",
     alt: "Vie scolaire et apprentissage",
   },
   {
     image:
-      "acail4.jpg",
+      "acail4.webp",
     alt: "Élèves participant à une activité scolaire",
   },
 ];
@@ -331,7 +331,7 @@ const Home = () => {
 
               <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
                 <img
-                  src="etablicement.jpg"
+                  src="etablicement.webp"
                   alt="Vie scolaire de l'établissement"
                   loading="lazy"
                   className="h-[460px] w-full object-cover transition duration-700 hover:scale-105"

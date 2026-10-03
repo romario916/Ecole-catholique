@@ -6,7 +6,7 @@ export const gallery: GalleryItem[] = [
     title: "Activité en classe",
     category: "Classes",
     image:
-      "ecole.jpg",
+      "ecole.webp",
   },
   {
     id: "vie-scolaire-1",
@@ -34,21 +34,21 @@ export const gallery: GalleryItem[] = [
     title: "Événement scolaire",
     category: "Événements",
     image:
-      "etablicement.jpg",
+      "etablicement.webp",
   },
   {
     id: "classe-2",
     title: "Apprentissage",
     category: "Classes",
     image:
-      "ecole2.jpg",
+      "ecole2.webp",
   },
   {
     id: "sport-2",
     title: "Sport scolaire",
     category: "Sport",
     image:
-      "actual3.jpg",
+      "actual3.webp",
   },
   {
     id: "culture-2",

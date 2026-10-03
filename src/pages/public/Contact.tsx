@@ -273,7 +273,7 @@ Quelques moments de la vie scolaire, des activités et des événements de l'ét
               <div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
                 <iframe
                   title="Localisation de l'École Notre-Dame du Rosaire Antohomadinika"
-                  src={`https://www.google.com/maps?q=${latitude},${longitude}&z=17&output=embed`}
+                  src={`https://maps.app.goo.gl/MpehwH4tMReYoHfM9?g_st=ic`}
                   className="h-[420px] w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
